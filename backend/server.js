@@ -4,6 +4,7 @@ const connectDb = require('./config/DB')
 const morgan = require('morgan')
 
 const userRoutes = require('./routes/user')
+const candidateRoutes = require('./routes/candidate')
 const {notFound, errorHandler} = require('./middleware/errorMiddleware')
 
 dotenv.config()
@@ -19,6 +20,8 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/users', userRoutes)
+app.use('/api/candidate', candidateRoutes)
+
 
 app.use(notFound)
 app.use(morgan)
